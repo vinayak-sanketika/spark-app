@@ -19,7 +19,7 @@ def write_to_kafka(csv_path, topic_name, bootstrap_servers):
         .load(csv_path)
 
    
-        # Writing each row as a separate string 
+       
         
     string_df = df.select(concat_ws(",",*df.columns).alias("value"))
 
