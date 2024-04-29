@@ -21,7 +21,7 @@ def write_to_kafka(csv_path, topic_name, bootstrap_servers):
    
         # Writing each row as a separate string 
         
-    string_df = df.select(concat_ws(",", col("StudentID"), col("CGPA"),col("Internships"), col("Projects"),col("Certifications"), col("AptitudeTestScore"),col("SoftSkillsRating"),col("ExtracurricularActivities"), col("PlacementTraining"),col("SSC_Marks"),col("HSC_Marks"),col("PlacementStatus")).alias("value"))
+    string_df = df.select(concat_ws(",",*df.columns).alias("value"))
 
 
     string_df.write \
